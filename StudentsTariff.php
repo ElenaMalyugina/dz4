@@ -14,6 +14,16 @@ class StudentsTariff extends Tariff
         };
 
         return $this->getBasePaymentForTravel($distance, $minutes, $age, $gps);
-    }    
+    }  
+    
+    public function paymentToString($distance, $minutes, $age, $gps = false) 
+    {
+        if(!$this->checkAge($age)) {
+            return false;
+        }; 
+        
+        $payment = $this->countPaymentForTravel($distance, $minutes, $age, $gps);
+        return "Тариф студенческий ($minutes минут, $distance км, $age лет," .  ($gps ? 'gps': 'без gps') . "): $payment р.";
+    }
 
 }

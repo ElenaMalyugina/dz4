@@ -12,6 +12,7 @@ abstract class Tariff implements ITariff
     protected $maxCoefAge = 21;
 
     abstract public function countPaymentForTravel($distance, $minutes, $age);
+    abstract public function paymentToString($distance, $minutes, $age);
 
     protected function getBasePaymentForTravel($distance, $minutes, $age, $gps = false)
     {

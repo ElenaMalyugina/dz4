@@ -31,5 +31,15 @@ class DailyTariff extends Tariff
         }
 
         return $finalPrice;
-    }    
+    } 
+    
+    public function paymentToString($distance, $minutes, $age, $gps = false, $addedDriiver = false) 
+    {
+        if(!$this->checkAge($age)) {
+            return false;
+        };
+
+        $payment = $this->countPaymentForTravel($distance, $minutes, $age, $gps, $addedDriiver);
+        return "Тариф суточный ($minutes минут, $distance км, $age лет, " . ($gps ? 'gps': 'без gps') . ", " . ($addedDriiver ? 'доп.водитель' : 'без доп.водителя') . "): $payment р.";
+    }
 }
