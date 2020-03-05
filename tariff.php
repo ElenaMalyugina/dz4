@@ -13,7 +13,8 @@ abstract class Tariff implements ITariff
 
     abstract public function countPaymentForTravel($distance, $minutes, $age);
 
-    protected function getBasePaymentForTravel($distance, $minutes, $age, $gps = false) {
+    protected function getBasePaymentForTravel($distance, $minutes, $age, $gps = false)
+    {
         if($gps) {
            $gpsPrice = $this->setGPS($minutes);           
         } else {
@@ -23,7 +24,8 @@ abstract class Tariff implements ITariff
         return (($this->pricePerCm * $distance) + ($this->pricePerMinute * $minutes)) * $this->getCoeff($age) + $gpsPrice;
     }
 
-    protected function checkAge($age){
+    protected function checkAge($age)
+    {
         if($age < $this->minAge || $age > $this->maxAge) {
             echo "Ваш возраст недопустим";
             return false;            
@@ -32,11 +34,8 @@ abstract class Tariff implements ITariff
         } 
     }
 
-    protected function getCoeff($age){
-        if($age < $this->maxCoefAge) {
-            return 1.1;
-        } else {
-            return 1;
-        }
+    protected function getCoeff($age)
+    {
+        return $age < $this->maxCoefAge ? 1.1 : 1;
     }
 }

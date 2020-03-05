@@ -2,7 +2,7 @@
 require_once "tariff.php";
 require_once "AddDriverTrait.php";
 
-class TariffDaily extends Tariff
+class DailyTariff extends Tariff
 {
     use AddDriver;
     protected $pricePerCm = 1;

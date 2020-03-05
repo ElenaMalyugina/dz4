@@ -1,13 +1,13 @@
 <?php
-require_once "tariffBase.php";
-require_once "tariffHours.php";
-require_once "tariffDaily.php";
-require_once "tariffStudents.php";
+require_once "BaseTariff.php";
+require_once "HoursTariff.php";
+require_once "DailyTariff.php";
+require_once "StudentsTariff.php";
 
-$tariffBase = new tariffBase();
-$tariffHours = new tariffHours();
-$tariffDaily = new tariffDaily();
-$tariffStudents = new tariffStudents();
+$tariffBase = new BaseTariff();
+$tariffHours = new HoursTariff();
+$tariffDaily = new DailyTariff();
+$tariffStudents = new StudentsTariff();
 
 echo $tariffBase->countPaymentForTravel(10, 2, 50);
 echo "<br>";

@@ -1,10 +1,11 @@
 <?php
 require_once "tariff.php";
 
-class TariffBase extends Tariff
+class StudentsTariff extends Tariff
 {
-    protected $pricePerCm = 10;
-    protected $pricePerMinute = 3;
+    protected $pricePerCm = 4;
+    protected $pricePerMinute = 1;
+    protected $maxAge = 25;
 
     public function countPaymentForTravel($distance, $minutes, $age, $gps = false)
     {

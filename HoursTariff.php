@@ -2,7 +2,7 @@
 require_once "tariff.php";
 require_once "AddDriverTrait.php";
 
-class TariffHours extends Tariff
+class HoursTariff extends Tariff
 {
     use AddDriver;
     protected $pricePerCm = 0;
